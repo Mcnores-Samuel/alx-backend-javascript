@@ -7,16 +7,14 @@
  * with a specific string (startString).
  */
 export default function cleanSet(set, startString) {
-  const array = Array.from(set);
-  let str = '';
-  if (startString) {
-    array.map((elem) => {
+  const result = [];
+  set.forEach((elem) => {
+    if (startString) {
       if (elem.startsWith(startString)) {
-        if (str) str = str.concat('-');
-        str = str.concat(elem.substr(startString.length));
+        result.push(elem.substr(startString.length));
       }
-      return elem;
-    });
-  }
-  return str;
+    }
+  });
+
+  return result.join('-');
 }
