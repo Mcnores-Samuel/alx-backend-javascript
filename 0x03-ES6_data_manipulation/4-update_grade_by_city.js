@@ -9,10 +9,8 @@ export default function updateStudentGradeByCity(list, city, grades) {
   return list.map((item) => {
     const matchingGrade = grades.find((grade) => grade.studentId === item.id);
     if (item.location === city && matchingGrade) {
-      item.grade = matchingGrade.grade;
-    } else {
-      item.grade = 'N/A';
+      return { ...item, grade: matchingGrade.grade };
     }
-    return item;
+    return { ...item, grade: 'N/A' };
   }).filter((elem) => elem.location === city);
 }
