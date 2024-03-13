@@ -8,8 +8,11 @@
  */
 export default function cleanSet(set, startString) {
   const result = [];
+  if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
+    return '';
+  }
   set.forEach((elem) => {
-    if (elem.startsWith(startString) && startString !== '') {
+    if (elem.startsWith(startString) && typeof startString === 'string') {
       result.push(elem.substr(startString.length));
     }
   });
