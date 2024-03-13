@@ -15,5 +15,5 @@ export default function hasValuesFromArray(set, array) {
   if (array.length === count) {
     return true;
   }
-  return false
+  return false;
 }
