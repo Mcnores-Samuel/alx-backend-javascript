@@ -7,16 +7,18 @@
  * with a specific string (startString).
  */
 export default function cleanSet(set, startString) {
-  const result = [];
+  const parts = [];
   if (!set || !startString || !(set instanceof Set) || typeof startString !== 'string') {
     return '';
   }
-  set.forEach((elem) => {
-    if (elem.startsWith(startString) && typeof startString === 'string') {
-      const substrValue = elem.substr(startString.length);
-      if (substrValue && substrValue !== elem) result.push(substrValue);
-    }
-  });
+  for (const value of set.values()) {
+    if (typeof value === 'string' && value.startsWith(startString)) {
+      const valueSubStr = value.substring(startString.length);
 
-  return result.join('-');
+      if (valueSubStr && valueSubStr !== value) {
+        parts.push(valueSubStr);
+      }
+    }
+  }
+  return parts.join('-');
 }
