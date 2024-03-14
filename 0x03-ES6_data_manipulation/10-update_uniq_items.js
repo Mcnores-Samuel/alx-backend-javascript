@@ -5,8 +5,10 @@
  */
 export default function updateUniqueItems(mapObj) {
   if (!mapObj || !(mapObj instanceof Map)) return 'Cannot process';
-  mapObj.forEach((value, key) => {
-    if (value === 1) mapObj.set(key, 100);
+
+  const updatedMap = new Map(mapObj);
+  updatedMap.forEach((value, key) => {
+    if (value === 1) updatedMap.set(key, 100);
   });
-  return mapObj;
+  return updatedMap;
 }
