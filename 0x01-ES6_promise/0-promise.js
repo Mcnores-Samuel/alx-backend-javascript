@@ -3,5 +3,6 @@
  * @returns a Promise using this prototype function getResponseFromAPI()
  */
 export default function getResponseFromAPI() {
-  return new Promise();
+  const promise = new Promise((resolve) => resolve());
+  return promise;
 }
