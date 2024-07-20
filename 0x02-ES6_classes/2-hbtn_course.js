@@ -18,14 +18,23 @@ class HolbertonCourse {
     }
 
     set name(newName) {
-        this._name = String(newName);
+        if (typeof newName !== 'string') {
+            throw new TypeError('Name must be a string');
+        }
+        this._name = newName;
     }
 
     set length(newLength) {
-        this._length = Number(newLength);
+        if (typeof newLength !== 'number') {
+            throw new TypeError('Length must be a number')
+        }
+        this._length = newLength
     }
 
     set students(newStudents) {
+        if (!Array.isArray(newStudents)) {
+            throw new TypeError('Students must be an array');
+        }
         this._students = Array(newStudents);
     }
 }
