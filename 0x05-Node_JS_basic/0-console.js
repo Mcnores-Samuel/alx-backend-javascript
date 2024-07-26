@@ -1,5 +1,7 @@
-function displayMessage(message) {
-  process.stdout.write(message + '\n');
+/**
+ * displayMessage  - Display message in console
+ * @param {*} message - Message to display
+ */
+export default function displayMessage(message){
+    console.log(message);
 }
-
-displayMessage('Hello NodeJS!');
